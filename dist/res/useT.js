@@ -1,16 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useT = void 0;
-var react_1 = require("react");
-function useT() {
-    var t = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        t[_i] = arguments[_i];
-    }
-    var callback = (0, react_1.useCallback)(function (str) {
-        for (var _i = 0, t_1 = t; _i < t_1.length; _i++) {
-            var r = t_1[_i];
-            var ret = r(str);
+import { useCallback } from "react";
+export function useT(...t) {
+    let callback = useCallback((str) => {
+        for (let r of t) {
+            let ret = r(str);
             if (ret)
                 return ret;
         }
@@ -18,5 +10,4 @@ function useT() {
     }, [t]);
     return callback;
 }
-exports.useT = useT;
 //# sourceMappingURL=useT.js.map

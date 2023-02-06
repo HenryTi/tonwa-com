@@ -2,10 +2,11 @@ import React from "react";
 export interface DropdownAction {
     icon?: string;
     caption?: string;
-    action?: (() => void) | string;
+    action?: Action | string;
     iconClass?: string;
     captionClass?: string;
 }
+declare type Action = (item: DropdownAction) => void;
 export interface DropdownActionsProps {
     icon?: string;
     content?: string | JSX.Element;
@@ -27,3 +28,4 @@ export declare class DropdownActions extends React.Component<DropdownActionsProp
     private toggle;
     render(): JSX.Element;
 }
+export {};

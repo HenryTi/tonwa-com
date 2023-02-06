@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 export interface DropdownAction {
     icon?: string;
     caption?: string;
-    action?: (() => void) | string;
+    action?: Action | string;
     iconClass?: string;
     captionClass?: string;
 }
+type Action = (item: DropdownAction) => void;
 
 export interface DropdownActionsProps {
     icon?: string;
@@ -115,10 +116,10 @@ export class DropdownActions extends React.Component<DropdownActionsProps, Dropd
                         if (typeof action === 'function') {
                             let onMenuItemClick = (evt: React.MouseEvent<HTMLAnchorElement>) => {
                                 evt.preventDefault();
-                                (action as () => void)();
+                                (action as Action)(v);
                             }
                             let onTouchStart = (evt: React.TouchEvent<HTMLAnchorElement>) => {
-                                (action as () => void)();
+                                (action as Action)(v);
                             }
                             return <a className="dropdown-item" key={index} href="#/"
                                 onClick={onMenuItemClick} onTouchStart={onTouchStart}

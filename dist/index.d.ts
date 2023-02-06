@@ -1,3 +1,4 @@
+import './css/tonwa.css';
 export * from './form';
 export * from './coms';
 export * from './list';

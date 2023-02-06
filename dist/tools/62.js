@@ -1,27 +1,24 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.to62 = exports.from62 = void 0;
-var digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-var c0 = digits.charCodeAt(0);
-var c9 = digits.charCodeAt(9);
-var A = digits.charCodeAt(10);
-var Z = digits.charCodeAt(35);
-var a = digits.charCodeAt(36);
-var z = digits.charCodeAt(61);
-function from62(v) {
+const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const c0 = digits.charCodeAt(0);
+const c9 = digits.charCodeAt(9);
+const A = digits.charCodeAt(10);
+const Z = digits.charCodeAt(35);
+const a = digits.charCodeAt(36);
+const z = digits.charCodeAt(61);
+export function from62(v) {
     if (v === null)
         return null;
     if (v === undefined)
         return undefined;
     if (typeof v !== 'string')
         return Number.NaN;
-    var len = v.length;
+    let len = v.length;
     if (len === 0)
         return Number.NaN;
-    var ret = 0;
-    for (var i = 0; i < len; i++) {
-        var c = v.charCodeAt(i);
-        var n = void 0;
+    let ret = 0;
+    for (let i = 0; i < len; i++) {
+        let c = v.charCodeAt(i);
+        let n;
         if (c < c0)
             return Number.NaN;
         if (c <= c9) {
@@ -47,8 +44,7 @@ function from62(v) {
     }
     return ret;
 }
-exports.from62 = from62;
-function to62(v) {
+export function to62(v) {
     if (v === null)
         return null;
     if (v === undefined)
@@ -57,7 +53,7 @@ function to62(v) {
         return '';
     if (v < 0)
         return '';
-    var ret = '';
+    let ret = '';
     for (;;) {
         ret = digits[v % 62] + ret;
         v = Math.floor(v / 62);
@@ -66,5 +62,4 @@ function to62(v) {
     }
     return ret;
 }
-exports.to62 = to62;
 //# sourceMappingURL=62.js.map

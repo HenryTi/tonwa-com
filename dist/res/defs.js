@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnumString = void 0;
-var EnumString;
+export var EnumString;
 (function (EnumString) {
     EnumString[EnumString["rule_required"] = 0] = "rule_required";
     EnumString[EnumString["rule_mustBeInteger"] = 1] = "rule_mustBeInteger";
@@ -14,6 +11,6 @@ var EnumString;
     EnumString[EnumString["time_yesterday"] = 8] = "time_yesterday";
     EnumString[EnumString["time_today"] = 9] = "time_today";
     EnumString[EnumString["time_tomorrow"] = 10] = "time_tomorrow";
-})(EnumString = exports.EnumString || (exports.EnumString = {}));
+})(EnumString || (EnumString = {}));
 ;
 //# sourceMappingURL=defs.js.map

@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.VDate = exports.EasyTime = exports.EasyDate = void 0;
-var jsx_runtime_1 = require("react/jsx-runtime");
-var res_1 = require("../res");
+import { Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { EnumString, resStrings, resFuncs } from '../res';
 //type YMD = (year:number, month:number, date:number) => string;
 //type MD = (month:number, date:number) => string;
 /*
@@ -30,13 +27,12 @@ const timeRes: { [prop: string]: any } = {
 */
 //setRes(timeRes, timeRes);
 function tt(str) {
-    return res_1.resStrings[str];
+    return resStrings[str];
 }
-function renderDate(vDate, withTime, always) {
-    if (always === void 0) { always = false; }
+function renderDate(vDate, withTime, always = false) {
     if (!vDate)
         return null;
-    var date;
+    let date;
     switch (typeof vDate) {
         default:
             date = vDate;
@@ -48,45 +44,45 @@ function renderDate(vDate, withTime, always) {
             date = new Date(vDate * 1000);
             break;
     }
-    var now = new Date();
-    var tick, nDate, _date, month, year, nowYear;
-    var d = date;
+    let now = new Date();
+    let tick, nDate, _date, month, year, nowYear;
+    let d = date;
     tick = now.getTime() - d.getTime();
-    var hour = d.getHours(), minute = d.getMinutes();
+    let hour = d.getHours(), minute = d.getMinutes();
     nDate = now.getDate();
     _date = d.getDate();
     month = d.getMonth() + 1;
     year = d.getFullYear();
     nowYear = now.getFullYear();
-    var appendTime = false;
-    var dPart = (function () {
+    let appendTime = false;
+    let dPart = (function () {
         if (tick < -24 * 3600 * 1000) {
             if (year === nowYear) {
                 appendTime = true;
-                return res_1.resFuncs.time_md(month, _date);
+                return resFuncs.time_md(month, _date);
             }
             else {
                 appendTime = true;
-                return res_1.resFuncs.time_ymd(year, month, _date);
+                return resFuncs.time_ymd(year, month, _date);
             }
         }
         if (tick < 24 * 3600 * 1000) {
             if (_date !== nDate) {
                 appendTime = true;
-                return tt(tick < 0 ? res_1.EnumString.time_tomorrow : res_1.EnumString.time_yesterday);
+                return tt(tick < 0 ? EnumString.time_tomorrow : EnumString.time_yesterday);
             }
             if (withTime === true) {
                 appendTime = true;
                 return '';
             }
-            return tt(res_1.EnumString.time_today);
+            return tt(EnumString.time_today);
         }
         if (year === nowYear) {
-            return res_1.resFuncs.time_md(month, _date);
+            return resFuncs.time_md(month, _date);
         }
-        return res_1.resFuncs.time_ymd(year, month, _date);
+        return resFuncs.time_ymd(year, month, _date);
     })();
-    var hm = hour + ((minute < 10 ? ':0' : ':') + minute);
+    let hm = hour + ((minute < 10 ? ':0' : ':') + minute);
     /*
     if (tick < -24*3600*1000) {
         if (year === nowYear)
@@ -109,29 +105,26 @@ function renderDate(vDate, withTime, always) {
     }
     return dPart;
 }
-function EasyDate(props) {
-    return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: renderDate(props.date, false) }, void 0);
+export function EasyDate(props) {
+    return _jsx(_Fragment, { children: renderDate(props.date, false) }, void 0);
 }
-exports.EasyDate = EasyDate;
-function EasyTime(props) {
-    var date = props.date, always = props.always;
-    return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: renderDate(date, true, always) }, void 0);
+export function EasyTime(props) {
+    let { date, always } = props;
+    return _jsx(_Fragment, { children: renderDate(date, true, always) }, void 0);
 }
-exports.EasyTime = EasyTime;
-var VDate = function (props) {
-    var date = props.date, hideTime = props.hideTime, hideSameYear = props.hideSameYear;
-    var year = date.getFullYear();
-    var vTime;
+export const VDate = (props) => {
+    let { date, hideTime, hideSameYear } = props;
+    let year = date.getFullYear();
+    let vTime;
     if (hideTime !== true) {
-        vTime = (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [date.getHours(), ":", String(100 + date.getMinutes()).substr(1, 2)] }, void 0);
+        vTime = _jsxs(_Fragment, { children: [date.getHours(), ":", String(100 + date.getMinutes()).substr(1, 2)] }, void 0);
     }
-    var vDate = (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [date.getMonth() + 1, "-", date.getDate()] }, void 0);
+    let vDate = _jsxs(_Fragment, { children: [date.getMonth() + 1, "-", date.getDate()] }, void 0);
     if (hideSameYear === true && year === new Date().getFullYear()) {
     }
     else {
-        vDate = (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [year, "-", vDate] }, void 0);
+        vDate = _jsxs(_Fragment, { children: [year, "-", vDate] }, void 0);
     }
-    return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [vDate, " ", vTime] }, void 0);
+    return _jsxs(_Fragment, { children: [vDate, " ", vTime] }, void 0);
 };
-exports.VDate = VDate;
 //# sourceMappingURL=EasyDate.js.map

@@ -1,6 +1,6 @@
 {
     "name": "tonwa-com",
-    "version": "1.0.1",
+    "version": "1.0.7",
     "description": "tonwa components",
     "private": false,
     "main": "dist/index.js",
