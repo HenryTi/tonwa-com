@@ -1,12 +1,10 @@
 import { useCallback } from "react";
-export function useT(...t) {
+export function useT(t, p) {
     let callback = useCallback((str) => {
-        for (let r of t) {
-            let ret = r(str);
-            if (ret)
-                return ret;
-        }
-        return str;
+        let ret = t(str);
+        if (ret)
+            return ret;
+        return p?.(str) ?? str;
     }, [t]);
     return callback;
 }
