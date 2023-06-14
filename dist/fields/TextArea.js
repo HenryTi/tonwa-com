@@ -32,7 +32,7 @@ export function TextArea({ name, className, readOnly, placeholder, maxLength, ru
     let cn = className ?? props.stringClassName ?? bandContainer.defaultStringClassName;
     let initValue = props.values?.[name];
     if (readOnly === true) {
-        return _jsx("div", { className: cn, children: initValue ?? bandContainer.defaultNone }, void 0);
+        return _jsx("div", { className: cn, children: initValue ?? bandContainer.defaultNone });
     }
     let onFocus = () => {
         bandContainer.clearError(name);
@@ -44,9 +44,9 @@ export function TextArea({ name, className, readOnly, placeholder, maxLength, ru
     let onChange = (evt) => {
         bandContainer.setValue(name, evt.currentTarget.value);
     };
-    return _jsx("textarea", { ref: input, name: name, className: cn, readOnly: readOnly, onFocus: onFocus, onBlur: onBlur, onChange: onChange, placeholder: placeholder, maxLength: maxLength, rows: rows ?? 4, defaultValue: initValue }, void 0);
+    return _jsx("textarea", { ref: input, name: name, className: cn, readOnly: readOnly, onFocus: onFocus, onBlur: onBlur, onChange: onChange, placeholder: placeholder, maxLength: maxLength, rows: rows ?? 4, defaultValue: initValue });
 }
 export function BandTextArea(props) {
-    return _jsx(Band, { ...props, children: _jsx(TextArea, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(TextArea, { ...props }) });
 }
 //# sourceMappingURL=TextArea.js.map

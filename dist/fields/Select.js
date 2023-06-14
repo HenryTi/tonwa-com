@@ -39,12 +39,12 @@ export function Select(props) {
         bandContainer.setValue(name, evt.currentTarget.value);
     }
     if (readOnly === true) {
-        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone }, void 0);
+        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone });
     }
     return _jsxs("select", { ref: select, defaultValue: bandContainer.props.values?.[name], className: className ?? bandContainer.defaultSelectClassName, onChange: onChange, children: [!initValue &&
-                _jsx("option", { value: undefined, children: placeholder ?? resStrings[EnumString.placeholder_select] }, void 0), options.map((v, index) => _jsx("option", { value: v.value, children: v.label }, index))] }, void 0);
+                _jsx("option", { value: undefined, children: placeholder ?? resStrings[EnumString.placeholder_select] }), options.map((v, index) => _jsx("option", { value: v.value, children: v.label }, index))] });
 }
 export function BandSelect(props) {
-    return _jsx(Band, { ...props, children: _jsx(Select, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Select, { ...props }) });
 }
 //# sourceMappingURL=Select.js.map

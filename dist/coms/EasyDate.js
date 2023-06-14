@@ -82,49 +82,32 @@ function renderDate(vDate, withTime, always = false) {
         }
         return resFuncs.time_ymd(year, month, _date);
     })();
-    let hm = hour + ((minute < 10 ? ':0' : ':') + minute);
-    /*
-    if (tick < -24*3600*1000) {
-        if (year === nowYear)
-            return tt('md')(month, _date) + ' ' + hm;
-        else
-            return tt('ymd')(year, month, _date) + ' ' + hm;
-    }
-    if (always === true || tick < 24*3600*1000) {
-        return _date!==nDate?
-            tt(tick < 0? 'tomorrow' : 'yesterday') + ' ' + hm
-            : withTime===true? hm : tt('today');
-    }
-    if (year === nowYear) {
-        return tt('md')(month, _date);
-    }
-    return tt('ymd')(year, month, _date);
-    */
-    if (appendTime === true || always === true) {
+    if (withTime === true && (appendTime === true || always === true)) {
+        let hm = hour + ((minute < 10 ? ':0' : ':') + minute);
         return dPart + ' ' + hm;
     }
     return dPart;
 }
 export function EasyDate(props) {
-    return _jsx(_Fragment, { children: renderDate(props.date, false) }, void 0);
+    return _jsx(_Fragment, { children: renderDate(props.date, false) });
 }
 export function EasyTime(props) {
     let { date, always } = props;
-    return _jsx(_Fragment, { children: renderDate(date, true, always) }, void 0);
+    return _jsx(_Fragment, { children: renderDate(date, true, always) });
 }
 export const VDate = (props) => {
     let { date, hideTime, hideSameYear } = props;
     let year = date.getFullYear();
     let vTime;
     if (hideTime !== true) {
-        vTime = _jsxs(_Fragment, { children: [date.getHours(), ":", String(100 + date.getMinutes()).substr(1, 2)] }, void 0);
+        vTime = _jsxs(_Fragment, { children: [date.getHours(), ":", String(100 + date.getMinutes()).substr(1, 2)] });
     }
-    let vDate = _jsxs(_Fragment, { children: [date.getMonth() + 1, "-", date.getDate()] }, void 0);
+    let vDate = _jsxs(_Fragment, { children: [date.getMonth() + 1, "-", date.getDate()] });
     if (hideSameYear === true && year === new Date().getFullYear()) {
     }
     else {
-        vDate = _jsxs(_Fragment, { children: [year, "-", vDate] }, void 0);
+        vDate = _jsxs(_Fragment, { children: [year, "-", vDate] });
     }
-    return _jsxs(_Fragment, { children: [vDate, " ", vTime] }, void 0);
+    return _jsxs(_Fragment, { children: [vDate, " ", vTime] });
 };
 //# sourceMappingURL=EasyDate.js.map

@@ -58,15 +58,15 @@ function CheckInput({ name, id, readOnly, indeterminate, checkedValue, unchecked
         }
         bandContainer.setValue(name, val);
     }
-    return _jsx("input", { ref: input, name: name, type: "checkbox", id: id, className: props.checkClassName ?? bandContainer.defaultCheckClassName, disabled: readOnly ?? props.readOnly ?? false, onChange: onChange, onClick: onClick, checked: checked, defaultChecked: initChecked }, void 0);
+    return _jsx("input", { ref: input, name: name, type: "checkbox", id: id, className: props.checkClassName ?? bandContainer.defaultCheckClassName, disabled: readOnly ?? props.readOnly ?? false, onChange: onChange, onClick: onClick, checked: checked, defaultChecked: initChecked });
 }
 export function Check(props) {
     let { label } = props;
     let id = `_${props.name}_${Date.now()}`;
-    return _jsxs("div", { className: props.className ?? 'form-check', children: [_jsx(CheckInput, { ...props, id: id }, void 0), _jsx("label", { className: "form-check-label", htmlFor: id, children: label }, void 0)] }, void 0);
+    return _jsxs("div", { className: props.className ?? 'form-check', children: [_jsx(CheckInput, { ...props, id: id }), _jsx("label", { className: "form-check-label", htmlFor: id, children: label })] });
 }
 export function BandCheck(props) {
     let { label } = props;
-    return _jsx(Band, { ...props, label: undefined, contentType: BandContentType.check, children: _jsx(Check, { ...props, label: label }, void 0) }, void 0);
+    return _jsx(Band, { ...props, label: undefined, contentType: BandContentType.check, children: _jsx(Check, { ...props, label: label }) });
 }
 //# sourceMappingURL=Check.js.map

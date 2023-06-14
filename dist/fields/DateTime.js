@@ -58,20 +58,20 @@ function Picker(props) {
         bandContainer.setValue(name, val);
     }
     if (readOnly === true) {
-        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone }, void 0);
+        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone });
     }
-    return _jsx("input", { ref: input, type: type, defaultValue: bandContainer.props.values?.[name], className: cn, onBlur: onBlur, onFocus: onFocus, onChange: onChange }, void 0);
+    return _jsx("input", { ref: input, type: type, defaultValue: bandContainer.props.values?.[name], className: cn, onBlur: onBlur, onFocus: onFocus, onChange: onChange });
 }
 export function DatePicker(props) {
-    return _jsx(Picker, { ...props, type: "date" }, void 0);
+    return _jsx(Picker, { ...props, type: "date" });
 }
 export function TimePicker(props) {
-    return _jsx(Picker, { ...props, type: "time" }, void 0);
+    return _jsx(Picker, { ...props, type: "time" });
 }
 export function BandDatePicker(props) {
-    return _jsx(Band, { ...props, children: _jsx(DatePicker, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(DatePicker, { ...props }) });
 }
 export function BandTimePicker(props) {
-    return _jsx(Band, { ...props, children: _jsx(TimePicker, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(TimePicker, { ...props }) });
 }
 //# sourceMappingURL=DateTime.js.map

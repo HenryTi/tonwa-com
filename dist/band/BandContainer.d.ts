@@ -3,7 +3,7 @@ import { BandTemplateProps } from "./Band";
 import { BandContext } from "./BandContext";
 import { FieldItem } from "../fields";
 import { WritableAtom } from "jotai";
-export declare type OnValuesChanged = (values: {
+export type OnValuesChanged = (values: {
     name: string;
     value: any;
     preValue: any;

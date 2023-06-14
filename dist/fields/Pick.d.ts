@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { BandProps } from '../band';
 import { FieldProps } from './field';
-declare type PickProps = {
+type PickProps = {
     className?: string;
     onPick: (initValue: any) => Promise<any>;
     placeholder?: string;

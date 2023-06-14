@@ -11,7 +11,7 @@ export var BandContentType;
 })(BandContentType || (BandContentType = {}));
 ;
 export function BandFieldError({ error }) {
-    return _jsxs("div", { className: "px-2 py-1 small", children: [_jsx(FA, { name: "exclamation-circle", className: "me-2 text-danger" }, void 0), _jsx("span", { className: "text-info", children: error }, void 0)] }, void 0);
+    return _jsxs("div", { className: "px-2 py-1 small", children: [_jsx(FA, { name: "exclamation-circle", className: "me-2 text-danger" }), _jsx("span", { className: "text-info", children: error })] });
 }
 export function BandFieldErrors({ errors }) {
     if (!errors)
@@ -25,18 +25,18 @@ export function BandFieldErrors({ errors }) {
         if (p < 0)
             arr.push(error);
     }
-    return _jsx(_Fragment, { children: arr.map((v, index) => _jsx(BandFieldError, { error: v }, index)) }, void 0);
+    return _jsx(_Fragment, { children: arr.map((v, index) => _jsx(BandFieldError, { error: v }, index)) });
 }
 export function BandMemo({ memo }) {
     if (typeof (memo) === 'string') {
-        return _jsxs("div", { className: "px-2 py-1 small text-muted", children: [_jsx(FA, { name: "caret-right", className: "me-2" }, void 0), memo] }, void 0);
+        return _jsxs("div", { className: "px-2 py-1 small text-muted", children: [_jsx(FA, { name: "caret-right", className: "me-2" }), memo] });
     }
     return memo;
 }
 export function BandMemos({ memos }) {
     if (!memos)
         return null;
-    return _jsx(_Fragment, { children: memos.map((v, index) => _jsx(BandMemo, { memo: v }, index)) }, void 0);
+    return _jsx(_Fragment, { children: memos.map((v, index) => _jsx(BandMemo, { memo: v }, index)) });
 }
 function buildMemosFromChildren(children) {
     let memos = [];
@@ -107,7 +107,7 @@ function Value({ name, options }) {
             }
         }
     }
-    return _jsx("div", { className: 'py-2', children: val ?? defaultNone }, void 0);
+    return _jsx("div", { className: 'py-2', children: val ?? defaultNone });
 }
 export function Band(props) {
     let { label, labelSize, children, BandTemplate, sep, contentType, toEdit, rightIcon, contentContainerClassName } = props;
@@ -118,7 +118,7 @@ export function Band(props) {
     let { current: band } = useRef(new BandContext(bandContainer, memos));
     let errors = useAtomValue(band.errors);
     if (!bandContainer) {
-        return _jsxs("div", { children: ["Error: ", '<Band /> can only be in <Form />'] }, void 0);
+        return _jsxs("div", { children: ["Error: ", '<Band /> can only be in <Form />'] });
     }
     BandTemplate = BandTemplate ?? bandContainer.BandTemplate;
     switch (contentType) {
@@ -128,11 +128,11 @@ export function Band(props) {
             if (bandContainer.isDetail === true) {
                 switch (contentType) {
                     case BandContentType.check:
-                        children = _jsx("div", { className: 'py-2', children: children }, void 0);
+                        children = _jsx("div", { className: 'py-2', children: children });
                         break;
                     default:
                         let [newChildren, readOnly] = buildDetailChildren(children);
-                        children = _jsx(_Fragment, { children: newChildren }, void 0);
+                        children = _jsx(_Fragment, { children: newChildren });
                         if (readOnly === true)
                             band.readOnly = true;
                         else if (bandContainer.readOnly === true) {
@@ -143,9 +143,9 @@ export function Band(props) {
             }
             break;
     }
-    return _jsx(VBandContext.Provider, { value: band, children: _jsx(BandTemplate, { label: label, labelSize: labelSize, errors: errors, memos: band.memos, content: content, sep: sep, contentType: contentType, toEdit: toEdit, rightIcon: rightIcon, contentContainerClassName: contentContainerClassName, children: children }, void 0) }, void 0);
+    return _jsx(VBandContext.Provider, { value: band, children: _jsx(BandTemplate, { label: label, labelSize: labelSize, errors: errors, memos: band.memos, content: content, sep: sep, contentType: contentType, toEdit: toEdit, rightIcon: rightIcon, contentContainerClassName: contentContainerClassName, children: children }) });
 }
 export function BandCom(props) {
-    return _jsx(Band, { ...props, contentType: BandContentType.com, children: props.children }, void 0);
+    return _jsx(Band, { ...props, contentType: BandContentType.com, children: props.children });
 }
 //# sourceMappingURL=Band.js.map

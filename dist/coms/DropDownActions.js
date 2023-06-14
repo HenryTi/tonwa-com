@@ -62,25 +62,25 @@ export class DropdownActions extends React.Component {
             cnMenu += ' dropdown-menu-right';
         if (dropdownOpen === true)
             cnMenu += ' show';
-        return _jsxs("div", { className: 'dropdown ' + containerClass, children: [_jsxs("button", { ref: v => this.button = v, className: cn, "data-toggle": "dropdown", "aria-expanded": dropdownOpen, onClick: this.toggle, children: [icon !== null && _jsx("i", { className: 'fa fa-fw fa-' + (icon ?? 'ellipsis-v') }, void 0), content && _jsx("span", { className: "ms-1", children: content }, void 0)] }, void 0), _jsx("div", { ref: v => this.menu = v, className: cnMenu, children: actions.map((v, index) => {
+        return _jsxs("div", { className: 'dropdown ' + containerClass, children: [_jsxs("button", { ref: v => this.button = v, className: cn, "data-toggle": "dropdown", "aria-expanded": dropdownOpen, onClick: this.toggle, children: [icon !== null && _jsx("i", { className: 'fa fa-fw fa-' + (icon ?? 'ellipsis-v') }), content && _jsx("span", { className: "ms-1", children: content })] }), _jsx("div", { ref: v => this.menu = v, className: cnMenu, children: actions.map((v, index) => {
                         if (!v) {
                             return _jsx("div", { className: "dropdown-divider" }, index);
                         }
                         let { icon, caption, action, iconClass, captionClass } = v;
                         if (icon === undefined && caption === undefined)
-                            return _jsx("div", { className: "dropdown-divider" }, void 0);
+                            return _jsx("div", { className: "dropdown-divider" });
                         let i;
                         if (hasIcon === true) {
                             if (icon !== undefined)
                                 icon = 'fa-' + icon;
                             if (!iconClass)
                                 iconClass = 'text-info';
-                            i = _jsx("i", { className: 'me-2  fa-fw fa ' + icon + ' ' + iconClass, "aria-hidden": true }, void 0);
+                            i = _jsx("i", { className: 'me-2  fa-fw fa ' + icon + ' ' + iconClass, "aria-hidden": true });
                         }
                         if (action === undefined) {
-                            return _jsxs("h6", { className: "dropdown-header", children: [i, " ", caption] }, void 0);
+                            return _jsxs("h6", { className: "dropdown-header", children: [i, " ", caption] });
                         }
-                        let content = _jsxs(_Fragment, { children: [i, " ", _jsx("span", { className: captionClass || itemCaptionClass, children: caption }, void 0)] }, void 0);
+                        let content = _jsxs(_Fragment, { children: [i, " ", _jsx("span", { className: captionClass || itemCaptionClass, children: caption })] });
                         if (typeof action === 'function') {
                             let onMenuItemClick = (evt) => {
                                 evt.preventDefault();
@@ -95,7 +95,7 @@ export class DropdownActions extends React.Component {
                             let to = action;
                             return _jsx(Link, { className: "dropdown-item", to: to, children: content }, index);
                         }
-                    }) }, void 0)] }, void 0);
+                    }) })] });
     }
 }
 //# sourceMappingURL=DropDownActions.js.map

@@ -6,7 +6,7 @@ export interface DropdownAction {
     iconClass?: string;
     captionClass?: string;
 }
-declare type Action = (item: DropdownAction) => void;
+type Action = (item: DropdownAction) => void;
 export interface DropdownActionsProps {
     icon?: string;
     content?: string | JSX.Element;

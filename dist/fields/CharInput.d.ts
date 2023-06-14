@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { FieldProps } from './field';
-declare type CharInputBaseProps = {
+type CharInputBaseProps = {
     placeholder: string;
     maxLength: number;
     isValidKey?: (key: string) => boolean;

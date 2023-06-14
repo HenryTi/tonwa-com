@@ -1,9 +1,12 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import * as React from 'react';
 import { env } from '../tools';
+import { ComAsync } from './ComAsync';
 export function SearchBox(props) {
     let { className, inputClassName, onFocus, label, placeholder, buttonText, maxLength, size } = props;
-    let input;
-    let button;
+    const [isWaiting, setIsWaiting] = React.useState(false);
+    let input = React.useRef(null);
+    let button = React.useRef(null);
     let key = null;
     function onChange(evt) {
         key = evt.target.value;
@@ -12,11 +15,10 @@ export function SearchBox(props) {
             if (key === '')
                 key = undefined;
         }
-        console.log('key = ' + key);
         if (props.allowEmptySearch === true) {
         }
         else {
-            button.disabled = key === undefined || key.length === 0;
+            button.current.disabled = key === undefined || key.length === 0;
         }
     }
     async function onSubmit(evt) {
@@ -26,16 +28,18 @@ export function SearchBox(props) {
         if (props.allowEmptySearch !== true) {
             if (!key)
                 return;
-            if (input)
-                input.disabled = true;
-            if (button)
-                button.disabled = true;
+            if (input.current)
+                input.current.disabled = true;
+            if (button.current)
+                button.current.disabled = true;
         }
+        setIsWaiting(true);
         await props.onSearch(key);
-        if (input)
-            input.disabled = false;
-        if (button)
-            button.disabled = false;
+        if (input.current)
+            input.current.disabled = false;
+        if (button.current)
+            button.current.disabled = false;
+        setIsWaiting(false);
     }
     let inputSize;
     switch (size) {
@@ -53,6 +57,6 @@ export function SearchBox(props) {
     let autoComplete;
     if (env.isMobile === true)
         autoComplete = 'off';
-    return _jsx("form", { className: className, onSubmit: onSubmit, autoComplete: autoComplete, children: _jsxs("div", { className: "input-group " + inputSize, children: [label && _jsx("div", { className: "input-group-addon align-self-center me-2", children: label }, void 0), _jsx("input", { ref: v => input = v, onChange: onChange, type: "text", name: "key", onFocus: onFocus, className: 'form-control ' + (inputClassName ?? 'border-primary'), placeholder: placeholder, defaultValue: props.initKey, maxLength: maxLength }, void 0), _jsx("div", { className: "input-group-append", children: _jsxs("button", { ref: v => button = v, className: "btn btn-primary", type: "submit", disabled: props.allowEmptySearch !== true, children: [_jsx("i", { className: 'fa fa-search' }, void 0), _jsx("i", { className: "fa" }, void 0), buttonText] }, void 0) }, void 0)] }, void 0) }, void 0);
+    return _jsx("form", { className: className, onSubmit: onSubmit, autoComplete: autoComplete, children: _jsxs("div", { className: "input-group " + inputSize, children: [label && _jsx("div", { className: "input-group-addon align-self-center me-2", children: label }), _jsx("input", { ref: input, onChange: onChange, type: "text", name: "key", onFocus: onFocus, className: 'form-control ' + (inputClassName ?? 'border-primary'), placeholder: placeholder, defaultValue: props.initKey, maxLength: maxLength }), _jsx("div", { className: "input-group-append", children: _jsxs("button", { ref: button, className: "btn btn-primary position-relative", type: "submit", disabled: props.allowEmptySearch !== true, children: [_jsx("i", { className: 'fa fa-search' }), buttonText, _jsx(ComAsync, { isWaiting: isWaiting })] }) })] }) });
 }
 //# sourceMappingURL=SearchBox.js.map

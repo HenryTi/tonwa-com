@@ -1,6 +1,7 @@
-import React, { CSSProperties, MouseEvent, MouseEventHandler, useRef } from "react";
+import React, { CSSProperties, MouseEvent, MouseEventHandler, ReactNode, useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { ComAsync } from "./ComAsync";
 
 interface Props extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     children: React.ReactNode;
@@ -37,22 +38,20 @@ export function ButtonAsync(props: { onClick: (evt: MouseEvent<HTMLButtonElement
     if (isWaiting === true) {
         let { className } = props;
         className = (className ?? '') + ' position-relative';
-        let style: CSSProperties = {
-            zIndex: 30001,
-            background: 'rgba(0, 0, 0, 0.3)',
-            left: 0,
-            top: 0,
-            right: 0,
-            bottom: 0,
-        }
         return <button {...props} disabled={true} className={className}>
             {children}
-            <div className="d-flex position-absolute align-items-center justify-content-center" style={style}>
-                <i className="fa fa-spinner fa-spin" />
-            </div>
+            <ComAsync isWaiting={true} />
         </button>;
     }
     else {
         return <button {...props} onClick={newOnClick}>{children}</button>;
     }
 }
+
+export function ButtonSubmit({ className, isSubmiting, children, disabled }: { className: string; isSubmiting: boolean; children: ReactNode; disabled?: boolean; }) {
+    return <button type="submit" disabled={isSubmiting || (disabled ?? false)} className={(className ?? '') + ' position-relative'}>
+        {children}
+        {isSubmiting && <ComAsync isWaiting={true} />}
+    </button>;
+}
+

@@ -41,7 +41,7 @@ function RadioInput({ name, className, readOnly, item, itemIndex, defaultChecked
     }
     readOnly = readOnly ?? props.readOnly ?? false;
     let radioId = `_${name}_${itemIndex}_${Date.now()}`;
-    return _jsxs("label", { className: "form-check form-check-inline py-1 form-check-label", children: [_jsx("input", { ref: input, name: name, type: "radio", id: radioId, className: className ?? props.checkClassName ?? bandContainer.defaultCheckClassName, disabled: readOnly, onChange: onChange, value: value, defaultChecked: defaultChecked }, void 0), label] }, void 0);
+    return _jsxs("label", { className: "form-check form-check-inline py-1 form-check-label", children: [_jsx("input", { ref: input, name: name, type: "radio", id: radioId, className: className ?? props.checkClassName ?? bandContainer.defaultCheckClassName, disabled: readOnly, onChange: onChange, value: value, defaultChecked: defaultChecked }), label] });
     // <label className="form-check-label" htmlFor={radioId}>{label}</label> &nbsp;
 }
 export function Radio(props) {
@@ -53,9 +53,9 @@ export function Radio(props) {
     if (band)
         band.fields[name] = true;
     bandContainer.fields[name] = fieldItem;
-    return _jsx("div", { className: "py-1", children: options.map((v, index) => _jsx(RadioInput, { ...props, item: v, itemIndex: index, defaultChecked: v.value === val }, index)) }, void 0);
+    return _jsx("div", { className: "py-1", children: options.map((v, index) => _jsx(RadioInput, { ...props, item: v, itemIndex: index, defaultChecked: v.value === val }, index)) });
 }
 export function BandRadio(props) {
-    return _jsx(Band, { ...props, children: _jsx(Radio, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Radio, { ...props }) });
 }
 //# sourceMappingURL=Radio.js.map

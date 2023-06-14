@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 export interface ContainerProps {
     children: ReactNode;
 }
-declare type ContainerType = (props: ContainerProps) => JSX.Element;
+type ContainerType = (props: ContainerProps) => JSX.Element;
 export interface LabelRowPropsBase {
     className?: string;
     labelSize?: number;

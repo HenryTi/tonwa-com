@@ -23,7 +23,7 @@ export function Submit({ name, className, children, onSubmit, disabled }) {
     let { current: atomState } = useRef(atom({ readOnly: false, disabled }));
     let fieldState = useAtomValue(name ? fieldStates[name] : atomState);
     className = className ?? 'btn btn-primary';
-    children = children ?? _jsxs(_Fragment, { children: [_jsx(FA, { name: 'share-square-o' }, void 0), " ", resStrings[EnumString.string_submit]] }, void 0);
+    children = children ?? _jsxs(_Fragment, { children: [_jsx(FA, { name: 'share-square-o' }), " ", resStrings[EnumString.string_submit]] });
     useEffect(() => {
         if (name) {
             fields[name] = new SubmitItem(name, disabled);
@@ -75,7 +75,7 @@ export function Submit({ name, className, children, onSubmit, disabled }) {
             }
         }
     }
-    return _jsx(ButtonAsync, { onClick: onClick, disabled: (fieldState.disabled ?? false) || errorResponse.hasError, className: className, children: children }, void 0);
+    return _jsx(ButtonAsync, { onClick: onClick, disabled: (fieldState.disabled ?? false) || errorResponse.hasError, className: className, children: children });
 }
 export function Clear({ className, children }) {
     let form = useForm();
@@ -83,7 +83,7 @@ export function Clear({ className, children }) {
         evt.preventDefault();
         form.clearValues();
     }
-    return _jsx("button", { onClick: onClick, className: className, children: children }, void 0);
+    return _jsx("button", { onClick: onClick, className: className, children: children });
 }
 export function ClearErrorsButton({ className, children }) {
     let form = useForm();
@@ -92,6 +92,6 @@ export function ClearErrorsButton({ className, children }) {
         evt.preventDefault();
         form.clearAllErrors();
     }
-    return _jsx("button", { onClick: onClick, disabled: !hasError, className: className, children: children }, void 0);
+    return _jsx("button", { onClick: onClick, disabled: !hasError, className: className, children: children });
 }
 //# sourceMappingURL=Buttons.js.map

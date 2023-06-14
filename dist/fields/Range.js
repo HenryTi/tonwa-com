@@ -46,11 +46,11 @@ export function Range(props) {
         }
     }
     if (readOnly === true) {
-        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone }, void 0);
+        return _jsx("div", { className: className ?? bandContainer.defaultStringClassName, children: initValue ?? bandContainer.defaultNone });
     }
-    return _jsxs("div", { className: 'd-flex ' + (className ?? bandContainer.defaultStringClassName), children: [_jsx("div", { className: "me-2 w-min-3c text-center", children: value ?? initValue }, void 0), _jsxs("div", { className: "flex-grow-1", children: [_jsx("input", { ref: input, type: "range", defaultValue: bandContainer.props.values?.[name], className: className ?? bandContainer.defaultRangeClassName, onChange: onChange, min: min, max: max, step: step }, void 0), _jsxs("div", { className: "d-flex small text-muted px-1", children: [_jsx("div", { className: "me-3", children: min }, void 0), _jsx("div", { className: "flex-grow-1" }, void 0), _jsx("div", { className: "ms-3", children: max }, void 0)] }, void 0)] }, void 0)] }, void 0);
+    return _jsxs("div", { className: 'd-flex ' + (className ?? bandContainer.defaultStringClassName), children: [_jsx("div", { className: "me-2 w-min-3c text-center", children: value ?? initValue }), _jsxs("div", { className: "flex-grow-1", children: [_jsx("input", { ref: input, type: "range", defaultValue: bandContainer.props.values?.[name], className: className ?? bandContainer.defaultRangeClassName, onChange: onChange, min: min, max: max, step: step }), _jsxs("div", { className: "d-flex small text-muted px-1", children: [_jsx("div", { className: "me-3", children: min }), _jsx("div", { className: "flex-grow-1" }), _jsx("div", { className: "ms-3", children: max })] })] })] });
 }
 export function BandRange(props) {
-    return _jsx(Band, { ...props, children: _jsx(Range, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Range, { ...props }) });
 }
 //# sourceMappingURL=Range.js.map

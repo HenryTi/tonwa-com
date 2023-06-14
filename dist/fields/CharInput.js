@@ -22,7 +22,7 @@ export function CharInput(props) {
     let bandContainer = useBandContainer();
     let { name } = props;
     let initValue = bandContainer?.props.values?.[name];
-    return _jsx(CharInputBase, { ...props, initValue: initValue }, void 0);
+    return _jsx(CharInputBase, { ...props, initValue: initValue });
 }
 export function CharInputBase({ name, className, readOnly, placeholder, maxLength, rule, isValidKey, initValue, type, disabled }) {
     let input = useRef();
@@ -45,7 +45,7 @@ export function CharInputBase({ name, className, readOnly, placeholder, maxLengt
     if (hasError === true)
         cn += ' is-invalid';
     if (readOnly === true) {
-        return _jsx("div", { className: cn + ' bg-light text-muted', children: initValue ?? bandContainer.defaultNone }, void 0);
+        return _jsx("div", { className: cn + ' bg-light text-muted', children: initValue ?? bandContainer.defaultNone });
     }
     let onFocus = () => {
         bandContainer.clearError(name);
@@ -68,6 +68,6 @@ export function CharInputBase({ name, className, readOnly, placeholder, maxLengt
             return false;
         }
     };
-    return _jsx("input", { ref: input, name: name, type: type ?? 'text', className: cn, disabled: fieldState?.disabled, readOnly: readOnly, onFocus: onFocus, onBlur: onBlur, onBeforeInput: onBeforeInput, onChange: onChange, placeholder: placeholder, maxLength: maxLength, defaultValue: initValue }, void 0);
+    return _jsx("input", { ref: input, name: name, type: type ?? 'text', className: cn, disabled: fieldState?.disabled, readOnly: readOnly, onFocus: onFocus, onBlur: onBlur, onBeforeInput: onBeforeInput, onChange: onChange, placeholder: placeholder, maxLength: maxLength, defaultValue: initValue });
 }
 //# sourceMappingURL=CharInput.js.map

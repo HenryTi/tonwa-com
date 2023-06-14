@@ -24,7 +24,7 @@ export function FA(props) {
         cn += ' fa-flip-' + flip;
     if (inverse)
         cn += ' fa-inverse';
-    return _jsx("i", { className: cn }, void 0);
+    return _jsx("i", { className: cn });
 }
 export function StackedFA(props) {
     let { className, size, children } = props;
@@ -33,6 +33,6 @@ export function StackedFA(props) {
         cn += className + ' ';
     if (size)
         cn += ' fa-' + size + ' ';
-    return _jsx("span", { className: cn, children: children }, void 0);
+    return _jsx("span", { className: cn, children: children });
 }
 //# sourceMappingURL=FA.js.map

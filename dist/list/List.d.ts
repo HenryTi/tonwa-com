@@ -5,7 +5,7 @@ interface ItemProps<T> {
 export interface ListPropsWithoutItems<T> {
     className?: string;
     itemKey?: string | ((item: T) => string | number);
-    ItemView?: (props: ItemProps<T>) => JSX.Element;
+    ViewItem?: (props: ItemProps<T>) => JSX.Element;
     sep?: JSX.Element;
     none?: JSX.Element;
     loading?: JSX.Element;

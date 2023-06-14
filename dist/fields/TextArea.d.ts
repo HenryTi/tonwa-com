@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { BandProps } from '../band';
 import { FieldProps } from './field';
-declare type TextProps = {
+type TextProps = {
     placeholder?: string;
     maxLength?: number;
     rows?: number;

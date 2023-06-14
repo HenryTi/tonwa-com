@@ -8,11 +8,11 @@ export function Sep({ sep, className, children }) {
         className += ' border-top border-' + sep;
     }
     else if (React.isValidElement(sep) === true) {
-        children = _jsxs(_Fragment, { children: [sep, children] }, void 0);
+        children = _jsxs(_Fragment, { children: [sep, children] });
     }
     if (!children) {
         className += ' border-top border-1';
     }
-    return _jsx("div", { className: className, children: children }, void 0);
+    return _jsx("div", { className: className, children: children });
 }
 //# sourceMappingURL=Sep.js.map

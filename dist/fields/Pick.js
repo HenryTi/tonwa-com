@@ -32,7 +32,7 @@ export function Pick(props) {
     let vValue;
     if (readOnly !== true) {
         cn += ' cursor-pointer ';
-        vRight = _jsx("div", { children: _jsx(FA, { name: "angle-right" }, void 0) }, void 0);
+        vRight = _jsx("div", { children: _jsx(FA, { name: "angle-right" }) });
         onClick = async function () {
             let ret = await onPick(value);
             setAtomValue(bandContainer.getValue(name), ret);
@@ -42,7 +42,7 @@ export function Pick(props) {
             vValue = null;
         }
         else if (value !== undefined) {
-            vValue = Value === undefined ? JSON.stringify(value) : _jsx(Value, { value: value }, void 0);
+            vValue = Value === undefined ? JSON.stringify(value) : _jsx(Value, { value: value });
         }
         else {
             vValue = placeholder ?? resStrings[EnumString.placeholder_pick];
@@ -52,9 +52,9 @@ export function Pick(props) {
         vValue = value ?? bandContainer.defaultNone;
     }
     cn += (className ?? formProps.pickClassName ?? bandContainer.defaultPickClassName);
-    return _jsxs("div", { className: cn, onClick: onClick, children: [_jsx("div", { className: "flex-grow-1", children: vValue }, void 0), vRight] }, void 0);
+    return _jsxs("div", { className: cn, onClick: onClick, children: [_jsx("div", { className: "flex-grow-1", children: vValue }), vRight] });
 }
 export function BandPick(props) {
-    return _jsx(Band, { ...props, children: _jsx(Pick, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Pick, { ...props }) });
 }
 //# sourceMappingURL=Pick.js.map

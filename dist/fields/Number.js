@@ -65,18 +65,18 @@ function NumberInput(props) {
             return resStrings[EnumString.rule_overMax] + max;
         }
     }
-    return _jsx(CharInput, { placeholder: placeholder, maxLength: maxLength, isValidKey: isValidKey, rule: appendRule(rule, mustBeDecimal, ruleMin, ruleMax), ...props }, void 0);
+    return _jsx(CharInput, { placeholder: placeholder, maxLength: maxLength, isValidKey: isValidKey, rule: appendRule(rule, mustBeDecimal, ruleMin, ruleMax), ...props });
 }
 export function Decimal(props) {
-    return _jsx(NumberInput, { ...props, chars: decChars, excludeChars: "e" }, void 0);
+    return _jsx(NumberInput, { ...props, chars: decChars, excludeChars: "e" });
 }
 export function BandDecimal(props) {
-    return _jsx(Band, { ...props, children: _jsx(Decimal, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Decimal, { ...props }) });
 }
 export function Int(props) {
-    return _jsx(NumberInput, { ...props, chars: intChars, excludeChars: ".e" }, void 0);
+    return _jsx(NumberInput, { ...props, chars: intChars, excludeChars: ".e" });
 }
 export function BandInt(props) {
-    return _jsx(Band, { ...props, children: _jsx(Int, { ...props }, void 0) }, void 0);
+    return _jsx(Band, { ...props, children: _jsx(Int, { ...props }) });
 }
 //# sourceMappingURL=Number.js.map

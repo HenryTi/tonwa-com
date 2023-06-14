@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { BandProps } from '../band';
 import { FieldProps } from './field';
-declare type CheckInputProps = {
+type CheckInputProps = {
     indeterminate?: boolean;
     checkedValue?: string | number | boolean;
     uncheckedValue?: string | number | boolean;
